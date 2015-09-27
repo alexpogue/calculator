@@ -5,6 +5,7 @@ class ViewController: UIViewController
     @IBOutlet weak var display: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
+    var userHasTypedDecimalPoint = false;
     var brain = CalculatorBrain()
     
     @IBAction func appendDigit(sender: UIButton){
@@ -17,6 +18,18 @@ class ViewController: UIViewController
         }
     }
 
+    @IBAction func addDecimalPoint() {
+        if userHasTypedDecimalPoint {
+            return
+        }
+        if !userIsInTheMiddleOfTypingANumber {
+            display.text = "0"
+            userIsInTheMiddleOfTypingANumber = true
+        }
+        display.text = display.text! + "."
+        userHasTypedDecimalPoint = true
+    }
+    
     @IBAction func operate(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber {
             enter()
@@ -36,6 +49,7 @@ class ViewController: UIViewController
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
+        userHasTypedDecimalPoint = false
         if let result = brain.pushOperand(displayValue) {
             displayValue = result
         } else {
