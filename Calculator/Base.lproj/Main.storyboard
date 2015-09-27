@@ -214,14 +214,6 @@
                                     <action selector="enter" destination="BYZ-38-t0r" eventType="touchUpInside" id="eSj-lC-J6b"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-zK-MpM">
-                                <rect key="frame" x="28" y="469" width="102" height="123"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmu-vo-qg5">
                                 <rect key="frame" x="28" y="75" width="102" height="123"/>
                                 <animations/>
@@ -231,6 +223,17 @@
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nH2-vp-fOc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-zK-MpM">
+                                <rect key="frame" x="28" y="469" width="102" height="123"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title=".">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addDecimalPoint" destination="BYZ-38-t0r" eventType="touchUpInside" id="mHz-QZ-LKh"/>
                                 </connections>
                             </button>
                         </subviews>
