@@ -245,6 +245,16 @@
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eSE-VO-X8w"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DN7-Bi-F1a">
+                                <rect key="frame" x="20" y="75" width="560" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="L3Q-V8-CeB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -290,6 +300,7 @@
                             <constraint firstItem="TI1-e6-h1A" firstAttribute="leading" secondItem="d7A-1T-ri7" secondAttribute="trailing" constant="8" id="PvV-d6-glZ"/>
                             <constraint firstItem="wy3-7v-r95" firstAttribute="width" secondItem="9Ks-zK-MpM" secondAttribute="width" id="Q73-JY-XWk"/>
                             <constraint firstItem="wy3-7v-r95" firstAttribute="width" secondItem="Iel-yL-R69" secondAttribute="width" id="QrU-6S-iGu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DN7-Bi-F1a" secondAttribute="trailing" id="R5W-7E-TkZ"/>
                             <constraint firstItem="wy3-7v-r95" firstAttribute="height" secondItem="TI1-e6-h1A" secondAttribute="height" id="RlV-0j-DLT"/>
                             <constraint firstItem="o7h-Dk-M8o" firstAttribute="leading" secondItem="wy3-7v-r95" secondAttribute="trailing" constant="8" id="S1Q-fm-Dg7"/>
                             <constraint firstItem="vpA-mi-k2n" firstAttribute="top" secondItem="PwP-Sv-LOh" secondAttribute="bottom" constant="8" id="S30-yx-jVi"/>
@@ -322,6 +333,7 @@
                             <constraint firstItem="wy3-7v-r95" firstAttribute="width" secondItem="PwP-Sv-LOh" secondAttribute="width" id="ktw-Kh-Eyp"/>
                             <constraint firstItem="TDy-Ad-Uml" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lEf-aj-xiJ"/>
                             <constraint firstItem="BUa-r4-7S7" firstAttribute="top" secondItem="fga-Oa-x6W" secondAttribute="bottom" constant="8" id="lfX-dc-zEQ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="DN7-Bi-F1a" secondAttribute="leading" id="nDP-i9-16g"/>
                             <constraint firstItem="C3Q-St-EHr" firstAttribute="leading" secondItem="9Ks-zK-MpM" secondAttribute="trailing" constant="8" id="nbe-rC-lEz"/>
                             <constraint firstItem="9Ks-zK-MpM" firstAttribute="top" secondItem="BUa-r4-7S7" secondAttribute="bottom" constant="8" id="oh1-AO-btH"/>
                             <constraint firstItem="C3Q-St-EHr" firstAttribute="top" secondItem="Iel-yL-R69" secondAttribute="bottom" constant="8" id="otM-KP-qjn"/>
@@ -334,6 +346,7 @@
                             <constraint firstItem="wy3-7v-r95" firstAttribute="width" secondItem="d7A-1T-ri7" secondAttribute="width" id="rIv-Yw-HZ6"/>
                             <constraint firstItem="wy3-7v-r95" firstAttribute="height" secondItem="9Ks-zK-MpM" secondAttribute="height" id="swu-2c-rgQ"/>
                             <constraint firstItem="fR7-YV-3AU" firstAttribute="leading" secondItem="eQ4-qZ-gSm" secondAttribute="trailing" constant="8" id="v3P-Wm-HV9"/>
+                            <constraint firstItem="DN7-Bi-F1a" firstAttribute="top" secondItem="TDy-Ad-Uml" secondAttribute="bottom" constant="8" id="vG9-uh-bRK"/>
                             <constraint firstItem="wy3-7v-r95" firstAttribute="width" secondItem="fR7-YV-3AU" secondAttribute="width" id="w5o-hc-JvN"/>
                             <constraint firstItem="KOm-Bz-3Zu" firstAttribute="top" secondItem="w1k-di-pNI" secondAttribute="bottom" constant="8" id="woR-LV-Rac"/>
                             <constraint firstItem="fga-Oa-x6W" firstAttribute="top" secondItem="mmu-vo-qg5" secondAttribute="bottom" constant="8" id="wyV-Ns-o3h"/>
@@ -343,10 +356,12 @@
                     </view>
                     <connections>
                         <outlet property="display" destination="TDy-Ad-Uml" id="r6a-EL-QCf"/>
+                        <outlet property="opHistory" destination="DN7-Bi-F1a" id="azO-e8-LB4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="413" y="191"/>
         </scene>
     </scenes>
 </document>
