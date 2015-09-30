@@ -7,7 +7,14 @@ class ViewController: UIViewController
     
     var userIsInTheMiddleOfTypingANumber = false
     var brain = CalculatorBrain()
-    
+
+    @IBAction func clear() {
+        brain = CalculatorBrain()
+        userIsInTheMiddleOfTypingANumber = false
+        display.text = "0"
+        opHistory.text = nil
+    }
+
     @IBAction func appendDigit(sender: UIButton){
         let digit = sender.currentTitle!
         if digit != "." || !userIsInTheMiddleOfTypingANumber || display.text!.rangeOfString(".") == nil {
