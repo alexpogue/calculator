@@ -29,6 +29,7 @@ class ViewController: UIViewController
 
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
+        removeEqualsFromHistory()
         if digit != "." || !userIsInTheMiddleOfTypingANumber || display.text!.rangeOfString(".") == nil {
             if userIsInTheMiddleOfTypingANumber {
                 display.text = display.text! + digit
@@ -51,10 +52,12 @@ class ViewController: UIViewController
                 displayValue = 0
             }
         }
+        appendHistory("=")
     }
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
+        removeEqualsFromHistory()
         appendHistory(display.text!)
         if let result = brain.pushOperand(displayValue) {
             displayValue = result
@@ -62,7 +65,11 @@ class ViewController: UIViewController
             displayValue = 0 // should be something else, error message?
         }
     }
-    
+
+    func removeEqualsFromHistory() {
+        opHistory.text = opHistory.text!.stringByReplacingOccurrencesOfString(" =", withString: "")
+    }
+
     func appendHistory(thingToAppend: String) {
         if let history = opHistory.text {
             opHistory.text = history + " " + thingToAppend
