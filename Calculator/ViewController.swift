@@ -3,6 +3,7 @@ import UIKit
 class ViewController: UIViewController
 {
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var opHistory: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
     var brain = CalculatorBrain()
@@ -24,6 +25,7 @@ class ViewController: UIViewController
             enter()
         }
         if let operation = sender.currentTitle {
+            appendHistory(operation)
             if let result = brain.performOperation(operation) {
                 displayValue = result
             } else {
@@ -32,16 +34,21 @@ class ViewController: UIViewController
         }
     }
     
-    func multiply(op1: Double, op2: Double) -> Double {
-        return op1 * op2
-    }
-    
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
+        appendHistory(display.text!)
         if let result = brain.pushOperand(displayValue) {
             displayValue = result
         } else {
             displayValue = 0 // should be something else, error message?
+        }
+    }
+    
+    func appendHistory(thingToAppend: String) {
+        if let history = opHistory.text {
+            opHistory.text = history + " " + thingToAppend
+        } else {
+            opHistory.text = thingToAppend
         }
     }
     
