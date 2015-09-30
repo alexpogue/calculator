@@ -4,7 +4,7 @@ class ViewController: UIViewController
 {
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var opHistory: UILabel!
-    
+
     var userIsInTheMiddleOfTypingANumber = false
     var brain = CalculatorBrain()
 
@@ -15,7 +15,19 @@ class ViewController: UIViewController
         opHistory.text = nil
     }
 
-    @IBAction func appendDigit(sender: UIButton){
+    @IBAction func backspace() {
+        if userIsInTheMiddleOfTypingANumber {
+            let displayChars = display.text!.characters
+            if displayChars.count > 1 {
+                display.text = String(displayChars.dropLast())
+            } else {
+                display.text = "0"
+                userIsInTheMiddleOfTypingANumber = false
+            }
+        }
+    }
+
+    @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if digit != "." || !userIsInTheMiddleOfTypingANumber || display.text!.rangeOfString(".") == nil {
             if userIsInTheMiddleOfTypingANumber {
