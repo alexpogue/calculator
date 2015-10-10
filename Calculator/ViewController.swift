@@ -12,7 +12,7 @@ class ViewController: UIViewController
         brain = CalculatorBrain()
         userIsInTheMiddleOfTypingANumber = false
         display.text = "0"
-        opHistory.text = nil
+        opHistory.text = ""
     }
 
     @IBAction func backspace() {
@@ -51,8 +51,10 @@ class ViewController: UIViewController
             } else {
                 displayValue = 0
             }
+            // in case user presses two operators in a row
+            removeEqualsFromHistory()
+            appendHistory("=")
         }
-        appendHistory("=")
     }
     
     @IBAction func enter() {
@@ -71,11 +73,7 @@ class ViewController: UIViewController
     }
 
     func appendHistory(thingToAppend: String) {
-        if let history = opHistory.text {
-            opHistory.text = history + " " + thingToAppend
-        } else {
-            opHistory.text = thingToAppend
-        }
+        opHistory.text = opHistory.text! + " " + thingToAppend
     }
     
     var displayValue: Double {
