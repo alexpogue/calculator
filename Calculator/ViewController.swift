@@ -18,9 +18,8 @@ class ViewController: UIViewController
     @IBAction func backspace() {
         if userIsInTheMiddleOfTypingANumber {
             let displayChars = display.text!.characters
-            if displayChars.count > 1 {
-                display.text = String(displayChars.dropLast())
-            } else {
+            display.text = String(displayChars.dropLast())
+            if displayChars.count <= 1 {
                 display.text = "0"
                 userIsInTheMiddleOfTypingANumber = false
             }
@@ -29,14 +28,17 @@ class ViewController: UIViewController
 
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
+        let userHasTypedADecimalPoint = userIsInTheMiddleOfTypingANumber && display.text!.containsString(".")
+        let userJustTypedALeadingZero = userIsInTheMiddleOfTypingANumber && display.text! == "0"
+        if digit == "." && userHasTypedADecimalPoint || digit == "0" && userJustTypedALeadingZero {
+            return
+        }
         removeEqualsFromHistory()
-        if digit != "." || !userIsInTheMiddleOfTypingANumber || display.text!.rangeOfString(".") == nil {
-            if userIsInTheMiddleOfTypingANumber {
-                display.text = display.text! + digit
-            } else {
-                display.text = (digit == ".") ? ("0.") : (digit)
-                userIsInTheMiddleOfTypingANumber = true
-            }
+        if userIsInTheMiddleOfTypingANumber && display.text! != "0" {
+            display.text = display.text! + digit
+        } else {
+            display.text = (digit == ".") ? ("0.") : (digit)
+            userIsInTheMiddleOfTypingANumber = true
         }
     }
     
