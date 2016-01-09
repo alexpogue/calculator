@@ -42,6 +42,22 @@ class ViewController: UIViewController
         }
     }
     
+    @IBAction func negate(sender: UIButton) {
+        if userIsInTheMiddleOfTypingANumber {
+            let displayChars = display.text!.characters;
+            if display.text!.hasPrefix("-") {
+                display.text = String(displayChars.dropFirst())
+            }
+            else if display.text! != "0" {
+                display.text = "-" + display.text!
+            }
+        }
+        else if display.text! != "0" {
+            // criteria causes function to do nothing when program starts with "0" in display
+            operate(sender)
+        }
+    }
+    
     @IBAction func operate(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber {
             enter()
