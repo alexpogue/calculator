@@ -43,17 +43,18 @@ class ViewController: UIViewController
     }
     
     @IBAction func negate(sender: UIButton) {
+        if displayValue == 0 {
+            return
+        }
         if userIsInTheMiddleOfTypingANumber {
-            let displayChars = display.text!.characters;
             if display.text!.hasPrefix("-") {
-                display.text = String(displayChars.dropFirst())
+                display.text = String(display.text!.characters.dropFirst())
             }
-            else if display.text! != "0" {
+            else {
                 display.text = "-" + display.text!
             }
         }
-        else if display.text! != "0" {
-            // criteria causes function to do nothing when program starts with "0" in display
+        else {
             operate(sender)
         }
     }
