@@ -42,6 +42,23 @@ class ViewController: UIViewController
         }
     }
     
+    @IBAction func negate(sender: UIButton) {
+        if displayValue == 0 {
+            return
+        }
+        if userIsInTheMiddleOfTypingANumber {
+            if display.text!.hasPrefix("-") {
+                display.text = String(display.text!.characters.dropFirst())
+            }
+            else {
+                display.text = "-" + display.text!
+            }
+        }
+        else {
+            operate(sender)
+        }
+    }
+    
     @IBAction func operate(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber {
             enter()
